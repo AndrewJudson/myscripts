@@ -3,4 +3,5 @@
 			 ("marmalade" . "https://marmalade-repo.org/packages/")
 			 ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
+(setq-default indent-tabs-mode nil)
 (load-theme 'zenburn t)
