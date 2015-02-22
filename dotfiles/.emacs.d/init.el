@@ -42,3 +42,17 @@
 (setq show-paren-delay 0)
 ;; keyboard scroll one line at a time
 (setq scroll-step 1)
+;; steve yegge suggestions
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-w" 'backward-kill-word)
+(global-set-key "\C-x\C-k" 'kill-region)
+
+;; easier navigation in windows
+(defun move-cursor-previous-pane ()
+  "Move cursor to the previous pane."
+  (interactive)
+  (other-window -1))
+
+(global-set-key (kbd "\C-x\p") 'move-cursor-previous-pane)
+
+;;set mouse once I can get it to default to rectangle mode.
