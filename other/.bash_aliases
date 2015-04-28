@@ -15,8 +15,13 @@ alias .......='cd ../../../../../..'
 alias ........='cd ../../../../../../..'
 
 # misc aliases
+# use history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}'|sort -rn |head -n 20 to get most used
+# commands, so you can pick things most in need of aliases
 alias sshy='ssh -Y'
 alias e='emacs -nw'
+alias i='ipython'
+alias t='tmux'
+alias p='python'
 
 # git
 alias gb='git branch'
