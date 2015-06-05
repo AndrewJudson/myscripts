@@ -56,3 +56,9 @@
 (global-set-key (kbd "\C-x\p") 'move-cursor-previous-pane)
 
 ;;set mouse once I can get it to default to rectangle mode.
+
+;; set ido mode everythwere
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+(setq ido-create-new-buffer 'always)
