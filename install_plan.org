@@ -1,0 +1,48 @@
+Need to create a Makefile that installs all needed programs and configs
+This would ignore already added programs, and append to created configs
+This would use different install programs depending on the OS (brew, apt, etc)
+* These also need to be installed.
+Need to make sure that it also installs dependencies for each program/config
+Also need to settle on single version of Linux to use for development work
+* Install programs:
+** Shell (gui)
+*** Mac: Iterm2
+**** Install fonts, theme (Inconsolata, Zenburn)
+*** Linux: ?
+**** Install fonts, theme (Inconsolata, Zenburn)
+** Zsh
+** Tmux
+** Emacs (24)
+** Python
+*** iPython
+*** Pip
+*** Anaconda?
+** Browser
+** GCC
+** 1Password
+** R
+*** Mac: Chrome
+**** Install adblock
+*** Linux: Konqueror ala Mason? For work only browsing?
+*** Chrome w/ adblock
+**** Configs for this?
+* Install config files
+** .emacs.d
+** .zshrc
+** .aliases
+** .antigen
+** .tmux.conf
+** gitconfig
+* Platform specific gui programs
+** Mac
+*** Sizeup
+*** Quicksilver
+** Linux
+*** ?
+* Misc
+** Set zsh as default shell (as opposed to bash)
+** Swap keys
+*** Caps lock -> Ctrl
+*** Turn off old ctrl
+*** Swap alt and super if necessary
+** 
