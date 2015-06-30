@@ -4,13 +4,14 @@
 			 ("melpa" . "http://melpa.org/packages/")))
 
 (package-initialize)
+(require 'multi-term)
 ;;set up expand region - need to get working
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 ;;miscellaneous packages
 (require 'magit)
 (require 'csv-mode)
-(require 'haskell-mode)
+(require 'clojure-mode)
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;python related stuff
