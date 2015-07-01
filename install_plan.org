@@ -21,9 +21,15 @@ Also need to settle on single version of Linux to use for development work
 ** GCC
 ** 1Password
 ** R
-*** Mac: Chrome
-**** Install adblock
-*** Linux: Konqueror ala Mason? For work only browsing?
+** Clojure
+*** JDK runtime
+*** Leiningen
+**** Add it to path
+***** usr/bin
+***** Make sure it is accessible from Emacs
+** Mac: Chrome
+*** Install adblock
+** Linux: Konqueror ala Mason? For work only browsing?
 *** Chrome w/ adblock
 **** Configs for this?
 * Install config files
