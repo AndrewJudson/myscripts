@@ -5,6 +5,9 @@
 
 (package-initialize)
 (require 'multi-term)
+;; copy paste into terminal easier
+(require 'bracketed-paste)
+(bracketed-paste-enable)
 ;;set up expand region - need to get working
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
