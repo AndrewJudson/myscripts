@@ -5,7 +5,7 @@
 
 (package-initialize)
 (setq my-packages
-      (set-difference
+      (cl-set-difference
        '(bracketed-paste
          cider
          clojure-mode
@@ -14,17 +14,16 @@
          flycheck
          jedi
          magit
-         multiterm
-         zenburn-theme
-        )
-       '(melpa) 
+         multi-term
+         zenburn-theme)
+       '(melpa)
        )
       )
 
 (defun my-packages-installed-p ()
-  (loop for p in my-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
+  (cl-loop for p in my-packages
+        when (not (package-installed-p p)) do (cl-return nil)
+        finally (cl-return t)))
 
 (when (and (not (getenv "http_proxy")) 
            (not (my-packages-installed-p)))
