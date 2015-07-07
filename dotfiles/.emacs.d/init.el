@@ -6,7 +6,8 @@
 (package-initialize)
 (setq my-packages
       (cl-set-difference
-       '(bracketed-paste
+       '(benchmark-init
+         bracketed-paste
          cider
          clojure-mode
          csv-mode
@@ -39,7 +40,8 @@
         (error (message "%s not installable" p))))))
 ;; TODO: add autoinstallation of necessary Pip modules for Python modes
 
-;; 
+;;
+(require 'benchmark-init)
 (require 'multi-term)
 ;; copy paste into terminal easier
 (require 'bracketed-paste)
@@ -48,10 +50,10 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 ;;miscellaneous packages
-(require 'magit)
+(autoload 'magit "Magit" "Porcelain for Git")
 (require 'csv-mode)
 (require 'clojure-mode)
-(require 'cider)
+(autoload 'cider "Cider" "REPL for Clojure")
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;python related stuff
