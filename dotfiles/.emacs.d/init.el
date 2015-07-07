@@ -4,6 +4,43 @@
 			 ("melpa" . "http://melpa.org/packages/")))
 
 (package-initialize)
+(setq my-packages
+      (set-difference
+       '(bracketed-paste
+         cider
+         clojure-mode
+         csv-mode
+         expand-region
+         flycheck
+         jedi
+         magit
+         multiterm
+         zenburn-theme
+        )
+       '(melpa) 
+       )
+      )
+
+(defun my-packages-installed-p ()
+  (loop for p in my-packages
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
+
+(when (and ;;(not (getenv "http_proxy")) might not be necessary in most situations, can readd
+           (not (my-packages-installed-p)))
+  ;; check for new packages (package versions)
+  (message "%s" "Emacs is now refreshing its package database...")
+  (package-refresh-contents)
+  (message "%s" " done.")
+  ;; install the missing packages
+  (dolist (p my-packages)
+    (when (not (package-installed-p p))
+      (condition-case nil
+          (package-install p)
+        (error (message "%s not installable" p))))))
+;; TODO: add autoinstallation of necessary Pip modules for Python modes
+
+;; 
 (require 'multi-term)
 ;; copy paste into terminal easier
 (require 'bracketed-paste)
@@ -15,6 +52,7 @@
 (require 'magit)
 (require 'csv-mode)
 (require 'clojure-mode)
+(require 'cider)
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;python related stuff
