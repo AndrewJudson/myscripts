@@ -26,7 +26,7 @@
         when (not (package-installed-p p)) do (return nil)
         finally (return t)))
 
-(when (and ;;(not (getenv "http_proxy")) might not be necessary in most situations, can readd
+(when (and (not (getenv "http_proxy")) 
            (not (my-packages-installed-p)))
   ;; check for new packages (package versions)
   (message "%s" "Emacs is now refreshing its package database...")
