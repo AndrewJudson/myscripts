@@ -33,7 +33,7 @@ HISTCONTROL=ignoredups:ignorespace
 setopt inc_append_history
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
+HISTSIZE=100000
 HISTFILESIZE=99999999
 
 # check the window size after each command and, if necessary,
@@ -52,7 +52,9 @@ if [ -f $DIR"/.aliases" ]; then
     . $DIR"/.aliases"
 fi
 
-export EDITOR="emacs -nw"
+export VISUAL='emacsclient -nw --alternate-editor='
+export EDITOR='emacsclient -nw --alternate-editor='
+
 export PATH=$PATH:~/bin
 
 #Git branch in prompt.
@@ -62,6 +64,11 @@ export PATH=$PATH:~/bin
 #export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 autoload -U colors && colors
 export TERM=xterm-256color
+
+# Allow tab completion of globbing
+autoload -U compinit && compinit
+setopt GLOB_COMPLETE
+zstyle ':completion*:default' menu 'select=0'
 
 
 #Allow me to use Ctrl-s to search history forward

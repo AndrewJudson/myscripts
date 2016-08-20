@@ -16,6 +16,7 @@
          jedi
          magit
          multi-term
+         slime
          zenburn-theme)
        '(melpa)
        )
@@ -57,10 +58,13 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;python related stuff
-(require 'jedi)
+;;(require 'jedi)
 ;; Standard Jedi.el setting
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;;(add-hook 'python-mode-hook 'jedi:setup)
+;;(setq jedi:complete-on-dot t)
+(require 'slime)
+(setq inferior-lisp-prompt "/usr/local/bin/sbcl")
+(setq inferior-lisp-program (executable-find "sbcl"))
 ;;(require 'pylint)
 ;;(require 'pyflakes)
 ;;no tabs, set to spaces
@@ -70,8 +74,8 @@
 ;;if in terminal mode, install inconsolata on terminal. Otherwise, need to add it in init.el
 ;;numbering for columns and for rows
 (setq column-number-mode t)
-(global-linum-mode t)
-(setq linum-format "%4d \u2502 ")
+;;(global-linum-mode t)
+;;(setq linum-format "%4d \u2502 ")
 ;;turn off blinking cursor
 (blink-cursor-mode -1)
 ;;turn off menubar, toolbar, and scrollbar
@@ -98,10 +102,30 @@
 
 (global-set-key (kbd "\C-x\p") 'move-cursor-previous-pane)
 
+;; for rendering markdown
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(markdown-command "pandoc"))
 ;;set mouse once I can get it to default to rectangle mode.
 
 ;; set ido mode everythwere
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-(setq ido-create-new-buffer 'always)
+;;(setq ido-enable-flex-matching t)
+;;(setq ido-everywhere t)
+;;(ido-mode 1)
+;;(setq ido-create-new-buffer 'always)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (sh . t)
+   (python . t)
+   (R . t)
+   ))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
