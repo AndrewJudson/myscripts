@@ -2,8 +2,9 @@
 cat other/.bashrc-master >> ~/.bashrc
 # Copy other config files
 # TODO: Make this more programatic (once there are more files)
-cp other/.bash_aliases ~/.bash_aliases
-cp other/.git-completion-patch.bash ~/.git-completion-patch.bash
+cp other/.aliases ~/.aliases
 cp -r dotfiles/git ~/.git
 cp dotfiles/.tmux.conf ~/.tmux.conf
 cp -r dotfiles/.emacs.d ~/.emacs.d
+# add antigen installer?
+cat other/.zshrc_master >> ~/.zshrc
