@@ -41,7 +41,7 @@
 	ch = diff --name-status -r
 	cosu = !sh -c 'git checkout $0 && git submodule update --init'
 	ignored = "!git ls-files --others --exclude-standard"
-	lg = log --all --graph --abbrev-commit --date=relative --pretty=format:'%h -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset'
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lgb = log --graph --abbrev-commit --date=relative --pretty=format:'%h -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset'
 	track = !sh -c 'git branch --track "$0" "origin/$0" && git checkout "$0"'
 	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
