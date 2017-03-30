@@ -6,14 +6,15 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# Get the directory of this file (other bash files we source are in the
-# same directory)
-DIR="$( cd "$( dirname "${(%):-%N}" )" && pwd )"
+# speed up git
+__git_files () {
+    _wanted files expl 'local files' _files
+}
 
 # Load antigen
 source "$HOME/.antigen/antigen.zsh"
 antigen use oh-my-zsh
-antigen bundle git
+#antigen bundle git
 antigen bundle command-not-found
 antigen bundle zsh-users/zsh-completions src
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -21,6 +22,7 @@ antigen bundle safe-paste
 antigen theme robbyrussell
 antigen apply
 
+plugins=(gitfast)
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -48,12 +50,25 @@ HISTFILESIZE=99999999
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f $DIR"/.aliases" ]; then
-    . $DIR"/.aliases"
+if [ -f "~/.aliases" ]; then
+    . "~/.aliases"
 fi
 
-export VISUAL='emacsclient -nw --alternate-editor='
-export EDITOR='emacsclient -nw --alternate-editor='
+#export EDITOR="emacs -nw"
+print_emacs_error() { echo "You're in Emacs already";}
+case "$INSIDE_EMACS" in 
+     *term*)
+         export VISUAL='print_emacs_error'
+         export EDITOR='print_emacs_error'
+         ;;
+     *comint*)
+         ## code to run for shell-mode
+         ;;
+     *)
+         ## code for non-emacs shells
+         export VISUAL='emacsclient -nw --alternate-editor='
+         export EDITOR='emacsclient -nw --alternate-editor='
+esac
 
 export PATH=$PATH:~/bin
 
