@@ -1,6 +1,5 @@
 # Source the files from this repo
 CUR_DIR='~/Development/myscripts'
-echo "source $CUR_DIR/other/.bashrc-master" | cat >> ~/.bashrc
 echo "source $CUR_DIR/other/.aliases" | cat >> ~/.aliases
 echo "[include]\n\tpath = $CUR_DIR/dotfiles/git/.gitconfig"| cat >> ~/.gitconfig
 echo "source-file $CUR_DIR/dotfiles/.tmux.conf" | cat >> ~/.tmux.conf
