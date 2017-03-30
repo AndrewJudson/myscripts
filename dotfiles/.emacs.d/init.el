@@ -2,7 +2,6 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 ;;			 ("marmalade" . "https://marmalade-repo.org/packages/")
 			 ("melpa" . "http://melpa.org/packages/")))
-(require 'cl)
 (package-initialize)
 (setq my-packages
       (cl-set-difference
@@ -108,7 +107,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(markdown-command "pandoc"))
+ '(markdown-command "pandoc")
+ '(package-selected-packages
+   (quote
+    (helm-projectile projectile helm zenburn-theme web-mode slime robe rainbow-delimiters racket-mode paredit neotree multi-term markdown-preview-mode magit keyfreq jedi-core jedi haskell-mode flycheck expand-region ess elpy csv-mode cider bracketed-paste benchmark-init autopair anaconda-mode))))
 ;;set mouse once I can get it to default to rectangle mode.
 
 ;; set ido mode everythwere
@@ -129,3 +131,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; shortcut to call git webview while I'm in a file
+(defun git-webview ()
+  (interactive)
+  (shell-command (concat "git webview " (buffer-file-name))))
+
+
+(global-set-key "\C-x\g" 'git-webview)
+
+(require 'helm-config)
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(helm-mode 1)
