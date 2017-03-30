@@ -41,3 +41,6 @@ git config --global alias.lg "log --color --graph \
 alias pg="ps aux | grep -v grep | grep -i "
 alias df='df -h'
 alias ducks='du -cksh * | sort -rn|head -11' # Lists folders and files sizes in the current folder
+
+#kill emacs sessions
+alias ekill="kill \$(ps aux | grep '[e]macs' | awk '{print \$2}')"
