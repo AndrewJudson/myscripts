@@ -1,10 +1,9 @@
-# Concatenate bashrc-master to existing bashrc file (in order to avoid path/source issues)
-cat other/.bashrc-master >> ~/.bashrc
-# Copy other config files
-# TODO: Make this more programatic (once there are more files)
-cp other/.aliases ~/.aliases
-cp -r dotfiles/git ~/.git
-cp dotfiles/.tmux.conf ~/.tmux.conf
-cp -r dotfiles/.emacs.d ~/.emacs.d
+# Source the files from this repo
+CUR_DIR='~/Development/myscripts'
+echo "source $CUR_DIR/other/.bashrc-master" | cat >> ~/.bashrc
+echo "source $CUR_DIR/other/.aliases" | cat >> ~/.aliases
+echo "[include]\n\tpath = $CUR_DIR/dotfiles/git/.gitconfig"| cat >> ~/.gitconfig
+echo "source-file $CUR_DIR/dotfiles/.tmux.conf" | cat >> ~/.tmux.conf
+echo "(load-file \"$CUR_DIR/dotfiles/.emacs.d/init.el\")" | cat >> ~/.emacs.d/init.el
 # add antigen installer?
-cat other/.zshrc_master >> ~/.zshrc
+echo "source $CUR_DIR/other/.zshrc_master" | cat >> ~/.zshrc
