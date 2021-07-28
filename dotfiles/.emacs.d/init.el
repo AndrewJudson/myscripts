@@ -69,7 +69,7 @@
 ;;no tabs, set to spaces
 (setq-default indent-tabs-mode nil)
 ;;make it look pretty
-(load-theme 'zenburn t)
+(load-theme 'solarized-light t)
 ;;if in terminal mode, install inconsolata on terminal. Otherwise, need to add it in init.el
 ;;numbering for columns and for rows
 (setq column-number-mode t)
@@ -78,11 +78,11 @@
 ;;turn off blinking cursor
 (blink-cursor-mode -1)
 ;;turn off menubar, toolbar, and scrollbar
-(menu-bar-mode -1)
-(if (boundp 'tool-bar-mode)
-    (tool-bar-mode -1))
-(if (boundp 'scroll-bar-mode)
-        (scroll-bar-mode -1))
+;;(menu-bar-mode -1)
+;;(if (boundp 'tool-bar-mode)
+;;    (tool-bar-mode -1))
+;;(if (boundp 'scroll-bar-mode)
+;;        (scroll-bar-mode -1))
 ;;always have parentheses mode on
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -121,7 +121,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
-   (sh . t)
+   (shell . t)
    (python . t)
    (R . t)
    ))
@@ -140,8 +140,8 @@
 
 (global-set-key "\C-x\g" 'git-webview)
 
-(require 'helm-config)
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(helm-mode 1)
+;;(require 'helm-config)
+;;(global-set-key (kbd "M-x") #'helm-M-x)
+;;(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+;;(global-set-key (kbd "C-x C-f") #'helm-find-files)
+;;(helm-mode 1)
