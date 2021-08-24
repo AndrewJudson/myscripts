@@ -145,3 +145,20 @@
 ;;(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 ;;(global-set-key (kbd "C-x C-f") #'helm-find-files)
 ;;(helm-mode 1)
+;; https://emacs.stackexchange.com/questions/66871/create-a-new-named-buffer-with-a-function/
+(defvar explicit-shell-file-name nil)
+
+(defun new-ansi-term (&optional program new-buffer-name)
+"Doc-string."
+  (interactive)
+  (let ((program (if program
+                     program
+                     (read-string "PROGRAM:  " nil nil (or explicit-shell-file-name
+                                                           (getenv "ESHELL")
+                                                           shell-file-name))))
+        (new-buffer-name (if new-buffer-name
+                             new-buffer-name
+                             (read-string "NEW-BUFFER-NAME:  "))))
+    (ansi-term program new-buffer-name)))
+
+(global-set-key (kbd "s-t") (lambda () (interactive) (new-ansi-term)))
