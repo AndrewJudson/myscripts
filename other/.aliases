@@ -18,7 +18,7 @@ alias ........='cd ../../../../../../..'
 # use history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}'|sort -rn |head -n 20 to get most used
 # commands, so you can pick things most in need of aliases
 alias sshy='ssh -Y'
-alias e='emacsclient -nw --alternate-editor='
+alias e='emacsclient -nw -q --alternate-editor='
 alias i='ipython'
 alias t='tmux'
 alias p='python'
@@ -32,6 +32,7 @@ alias gca='git commit -a --amend --no-edit'
 alias gco='git checkout'
 alias gg='git grep'
 alias gf='git commit --amend -C HEAD'
+alias gre="git for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)' | head"
 alias delete-branches='git branch | grep -v "master" | xargs git branch -D'
 # git aliases
 git config --global alias.lg "log --color --graph \
