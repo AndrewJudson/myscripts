@@ -1,7 +1,7 @@
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 ;;			 ("marmalade" . "https://marmalade-repo.org/packages/")
-			 ("melpa" . "http://melpa.org/packages/")))
+			 ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 (setq my-packages
       (cl-set-difference
@@ -162,3 +162,10 @@
     (ansi-term program new-buffer-name)))
 
 (global-set-key (kbd "s-t") (lambda () (interactive) (new-ansi-term)))
+
+;; Setup lsp-mode as desired.
+;; See https://emacs-lsp.github.io/lsp-mode/page/installation/ for more information.
+(require 'lsp-mode)
+
+;; Either place zls in your PATH or add the following:
+(setq lsp-zig-zls-executable "/Users/user/zls/zls")

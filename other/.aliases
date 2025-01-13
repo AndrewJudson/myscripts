@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Replacement utilities
+alias cat='bat'
+alias ls='eza'
+#alias ls='ls --color=auto'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
