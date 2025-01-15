@@ -5,6 +5,9 @@ alias cat='bat'
 alias ls='eza'
 #alias ls='ls --color=auto'
 
+
+alias internet='/usr/local/bin/internet.sh'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
